@@ -12,6 +12,6 @@ RUN mkdir /scripts/pre-exec.d && \
 
 EXPOSE 3306
 
-VOLUME ["/etc/mysql","/var/lib/mysql"]
+VOLUME ["/var/lib/mysql"]
 
 ENTRYPOINT ["/scripts/run.sh"]
