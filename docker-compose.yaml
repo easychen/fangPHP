@@ -1,0 +1,34 @@
+version: '2'
+services:
+  php7.ftqq.com:
+    build: ./buildLNP
+    ports:
+      - "80:80"
+      - "443:80"
+    volumes:
+      - "./data/web:/data"
+  mysql.ftqq.com:
+      image: yobasystems/alpine-mariadb
+      environment:
+        MYSQL_ROOT_PASSWORD: itworks1343
+        MYSQL_DATABASE: fangtangdb
+        MYSQL_USER: php
+        MYSQL_PASSWORD: fangtang
+      ports:
+        - "3306:3306"
+      volumes:
+        - ./data/mysql:/var/lib/mysql
+      restart: always
+  redis.ftqq.com:
+      image: redis:4-alpine
+      ports:
+        - "6379:6379"
+      restart: always
+  livereload:
+    build: ./buildLiveReload
+    ports:
+      - "35729:35729"
+    volumes:
+      - "./data:/usr/src/livereload-watch"       
+
+    
