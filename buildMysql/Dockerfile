@@ -5,7 +5,7 @@ RUN apk --update add mariadb mariadb-client pwgen && \
     rm -f /var/cache/apk/*
 
 ADD files/run.sh /scripts/run.sh
-ADD my.cnf /etc/mysql/my.cnf
+ADD files/my.cnf /etc/mysql/my.cnf
 RUN mkdir /scripts/pre-exec.d && \
     mkdir /scripts/pre-init.d && \
     chmod -R 755 /scripts
