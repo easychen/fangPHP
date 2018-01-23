@@ -93,10 +93,15 @@ docker-compose up
 
 ## How to use
 
-1. install docker on your computor
-1. git clone https://github.com/easychen/fangPHP
-1. cd https://github.com/easychen/fangPHP
-1. docker-compose up
+#### Prerequisites
+Install [Native Docker CE](https://www.docker.com/community-edition#/download)
+#### Quick Start
+```bash
+git clone https://github.com/easychen/fangPHP && cd fangPHP
+# install docker-compose 
+sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
+docker-compose up
+``` 
 1. write a index.php file under ./web
 1. visit o.ftqq.com , you should see the html
 
