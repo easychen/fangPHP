@@ -8,7 +8,7 @@ services:
     volumes:
       - "./data/web:/data"
   mysql.ftqq.com:
-      image: hub.c.163.com/library/mysql:5.5
+      image: yobasystems/alpine-mariadb
       environment:
         MYSQL_ROOT_PASSWORD: itworks1343
         MYSQL_DATABASE: fangtangdb
@@ -16,8 +16,6 @@ services:
         MYSQL_PASSWORD: fangtang
       ports:
         - "3306:3306"
-      volumes:
-        - "./data/mysql:/var/lib/mysql"
       restart: always
   redis.ftqq.com:
       image: hub.c.163.com/library/redis:4-alpine
@@ -29,6 +27,6 @@ services:
     ports:
       - "35729:35729"
     volumes:
-      - "./data/web:/usr/src/livereload-watch"       
+      - "./data:/usr/src/livereload-watch"       
 
     
