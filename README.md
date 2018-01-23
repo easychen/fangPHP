@@ -1,6 +1,8 @@
 # fangPHP
 fangPHP is a docker based development env with php7 mysql redis and livereload
 
+fangPHP 的目标是一个跨平台（ Mac / Linux / Win ）的 PHP 开发环境，主要用于教学。它解决的是：老师讲了，学生回去做的时候，不能复现例子，最后查出来是环境差异的问题。
+
 ## 如何使用
 
 ### Native Docker 的使用

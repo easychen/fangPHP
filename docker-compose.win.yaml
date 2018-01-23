@@ -19,8 +19,8 @@ services:
       restart: always
   redis.ftqq.com:
       image: hub.c.163.com/library/redis:4-alpine
-      ports:
-        - "6379:6379"
+      expose:
+        - "6379"
       restart: always
   livereload:
     build: ./buildLiveReload
