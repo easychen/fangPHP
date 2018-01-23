@@ -9,11 +9,15 @@ fangPHP 的目标是一个跨平台（ Mac / Linux / Win ）的 PHP 开发环境
 
 如果你的系统可以安装 Native Docker，请继续阅读，如果不能（ Win10 只有专业版和服务器版才能安装 Native Docker ）,请直接跳到 [Docker ToolBox 的使用](https://github.com/easychen/fangPHP#docker-toolbox-%E7%9A%84%E4%BD%BF%E7%94%A8) 部分。
 
-
-1. 安装 Native Docker 社区版。https://www.docker.com/community-edition#/download
-1. git clone https://github.com/easychen/fangPHP
-1. cd https://github.com/easychen/fangPHP
-1. docker-compose up
+#### Prerequisites
+安装 [Native Docker 社区版](https://www.docker.com/community-edition#/download)
+#### Quick Start
+```bash
+git clone https://github.com/easychen/fangPHP && cd fangPHP
+# install docker-compose 
+sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
+docker-compose up
+``` 
 1. 在 ./web 目录下新建一个 index.php
 1. 访问 o.ftqq.com ， 也就是 127.0.0.1 ，应该就能看到页面内容了
 
