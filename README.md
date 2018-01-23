@@ -20,6 +20,7 @@ fangPHP is a docker based development env with php7 mysql redis and livereload
 1. 可以在左上角切换语言
 1. 默认账号信息如下，可在 docker-compose.yaml 中修改：
 ```
+    MYSQL_HOST: mysql.ftqq.com
     MYSQL_ROOT_PASSWORD: itworks1343
     MYSQL_DATABASE: fangtangdb
     MYSQL_USER: php
@@ -61,6 +62,7 @@ fangPHP is a docker based development env with php7 mysql redis and livereload
 1. 可以在左上角切换语言
 1. 默认账号信息如下，可在 docker-compose.win.yaml 中修改：
 ```
+    MYSQL_HOST: mysql.ftqq.com
     MYSQL_ROOT_PASSWORD: itworks1343
     MYSQL_DATABASE: fangtangdb
     MYSQL_USER: php
