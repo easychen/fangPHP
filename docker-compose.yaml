@@ -8,7 +8,7 @@ services:
     volumes:
       - "./data/web:/data"
   mysql.ftqq.com:
-      image: yobasystems/alpine-mariadb
+      image: hub.c.163.com/easychen/alpine-mariadb:latest
       environment:
         MYSQL_ROOT_PASSWORD: itworks1343
         MYSQL_DATABASE: fangtangdb
