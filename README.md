@@ -104,7 +104,7 @@ gist 地址 https://gist.github.com/easychen/b126a24e20534562d44cae0988fed634#fi
 
 ## How to use
 
-### install docker via scripts
+### install docker via scripts （ Linux only ）
 
 ```
 git clone https://github.com/easychen/fangPHP && cd fangPHP
