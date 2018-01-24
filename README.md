@@ -22,6 +22,8 @@ gist 地址 https://gist.github.com/easychen/b126a24e20534562d44cae0988fed634#fi
 
 #### 手动安装
 
+> 注意：第二步，因 python 部分版本对中文目录不兼容，请 Windows 用户将 repo clone 到英文路径下。参考 issue https://github.com/easychen/fangPHP/issues/4
+
 1. 安装 Native Docker 社区版。https://www.docker.com/community-edition#/download
 1. git clone https://github.com/easychen/fangPHP
 1. cd https://github.com/easychen/fangPHP
@@ -62,6 +64,8 @@ gist 地址 https://gist.github.com/easychen/b126a24e20534562d44cae0988fed634#fi
 ### Docker ToolBox 的使用
 
 对于 Win10 非专业版用户，可以通过安装 虚拟机实现的 Docker ToolBox 来使用本环境
+
+> 注意：第四步，因 python 部分版本对中文目录不兼容，请 Windows 用户将 repo clone 到英文路径下。参考 issue https://github.com/easychen/fangPHP/issues/4
 
 1. https://docs.docker.com/toolbox/toolbox_install_windows/
 1. 安装（安装时如果没有安装 git windows 版，记得同时选上 ）完成后，启动「 Docker Quickstart Terminal 」，进入命令行
