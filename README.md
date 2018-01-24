@@ -56,7 +56,7 @@ gist 地址 https://gist.github.com/easychen/b126a24e20534562d44cae0988fed634#fi
 
 #### 使用 live-reload
 
-1. 安装 Chrome 插件 https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei （无法访问商店的同学，可以打开 https://chrome-extension-downloader.com/ ， 输入上边的地址下载 ）
+1. 安装 Chrome 插件 https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei （无法访问商店的同学，可使用 fangphp/LiveReload_v2.1.0.crx 本地版。拖拽到插件页面即可安装 ）
 1. 打开 o.ftqq.com , 点击浏览器右上方的插件图标 ，会提示连接成功
 1. 当你修改 ./web/ 下的 PHP、HTML、CSS 和 JS 文件时 ，页面会自动更新
 
@@ -100,7 +100,7 @@ gist 地址 https://gist.github.com/easychen/b126a24e20534562d44cae0988fed634#fi
 
 #### 使用 live-reload
 
-1. 安装 Chrome 插件 https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei （无法访问商店的同学，可以打开 https://chrome-extension-downloader.com/ ， 输入上边的地址下载 ）
+1. 安装 Chrome 插件 https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei （无法访问商店的同学，可使用 fangphp/LiveReload_v2.1.0.crx 本地版。拖拽到插件页面即可安装 ）
 1. 打开 o.ftqq.com , 点击浏览器右上方的插件图标 ，会提示连接成功
 1. 当你修改 ./web/ 下的 PHP、HTML、CSS 和 JS 文件时 ，页面会自动更新
 
