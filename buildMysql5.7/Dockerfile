@@ -2,7 +2,7 @@ FROM hub.c.163.com/library/alpine:3.6
 MAINTAINER Adam Wallner <wallner@bitbaro.hu>
 
 # The version numbers to download and build
-ENV MARIADB_VER 10.2.5
+ENV MARIADB_VER 10.2.12
 ENV JUDY_VER 1.0.5
 
 ADD start.sh /opt/mariadb/start.sh
@@ -27,7 +27,7 @@ RUN \
     # Download and unpack mariadb
     && mkdir -p /opt/src \
     && mkdir -p /etc/mysql \
-    && wget -O /opt/src/mdb.tar.gz https://downloads.mariadb.org/interstitial/mariadb-${MARIADB_VER}/source/mariadb-${MARIADB_VER}.tar.gz \
+    && wget -O /opt/src/mdb.tar.gz http://mirrors.neusoft.edu.cn/mariadb//mariadb-10.2.12/source/mariadb-10.2.12.tar.gz \
     && cd /opt/src && tar -xf mdb.tar.gz && rm mdb.tar.gz \
     # Download and unpack Judy (needed for OQGraph)
     && wget -O /opt/src/judy.tar.gz http://downloads.sourceforge.net/project/judy/judy/Judy-${JUDY_VER}/Judy-${JUDY_VER}.tar.gz \
