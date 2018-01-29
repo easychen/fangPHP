@@ -3,36 +3,92 @@ fangPHP is a docker based development env with php7 mysql redis and livereload
 
 fangPHP 的目标是一个跨平台（ Mac / Linux / Win ）的 PHP 开发环境，主要用于教学。它解决的是：老师讲了，学生回去做的时候，不能复现例子，最后查出来是环境差异的问题。
 
-## 如何使用
 
-### Native Docker 的使用
+## 安装和启动
 
-如果你的系统可以安装 Native Docker，请继续阅读，如果不能（ Win10 只有专业版和服务器版才能安装 Native Docker ）,请直接跳到 [Docker ToolBox 的使用](https://github.com/easychen/fangPHP#docker-toolbox-%E7%9A%84%E4%BD%BF%E7%94%A8) 部分。
+分为三步
 
-#### 通过脚本自动安装（ Linux 用 ）
+1. 安装 Docker（ 这是我们的容器平台 ）以及 Docker-compose（ 这是我们编排容器的工具，Linux上需要单独安装 ）
+1. 启动 fangPHP 环境
+1. 安装 Live-reload 插件
+1. 使用说明
+
+### 安装 Docker
+
+不同的操作系统安装 Docker 的方式不同，以下做分别的讲解。
+
+#### Win10 专业版和服务器版
+
+微软在 Win10 专业版、教育版和服务器版中，提供了 Hyper V 虚拟化技术，所以这部分用户可以安装最新的原生 Docker 客户端。
+Docker 提供面向企业的付费版本（EE）和面向社区的免费版本（CE），我们使用CE。
+
+[下载地址](https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe) [官方网站](https://www.docker.com/community-edition#/download)
+
+安装时记得选中 git for windows ，这是我们检出代码时要用到的工具。
+
+#### 其他 Windows 版本
+
+由于没有容器化技术的支持，其他的 Windows 版本只能通过虚拟机的方案来实现。这时候我们需要用到 Docker ToolBox。
+
+1. 下载页面 https://docs.docker.com/toolbox/toolbox_install_windows/
+1. 安装（安装时如果没有安装 git windows 版，记得同时选上 ）
+1. 完成后，启动「 Docker Quickstart Terminal 」，进入命令行
+1. 等待一段时间，按提示给予权限。最后会显示一个内网地址，一般是 192.168.99.100 。
+
+原生 Docker 客户端的服务是启动在 127.0.0.1 上边的 ， 为了保证环境的统一，我们将 192.168.99.100 的端口 映射到 127.0.0.1 上：
+
+1. git clone https://github.com/easychen/fangPHP ( clone fangPHP 代码到本地 )
+1. 以管理员身份运行 fangPHP 目录下的 port-remapping-for-toolkit-win.bat 启动以后挂着就行，不用的时候再点任意键关掉
+1. 如果你的IP不是 192.168.99.100 ， 请用编辑器打开 port-remapping-for-toolkit-win.bat ， 将 192.168.99.100 替换为对应的 IP。 
+
+### Linux 
+
+按官方的安装提示进行安装，以下链接以 Ubuntu 为例，左侧菜单处可切换其他发行版。
+https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce
+
+注意 apt-get 里边的 docker-compose 版本过低，不要通过 apt-get install docker-compose 安装，可按以下命令安装
 
 ```
-git clone https://github.com/easychen/fangPHP && cd fangPHP
-# install docker-compose 
 sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
-docker-compose up
 ```
 
-gist 地址 https://gist.github.com/easychen/b126a24e20534562d44cae0988fed634#file-gistfile1-txt
+### Mac 
 
-#### 手动安装
+Mac 系统可以使用原生的 Docker 客户端，[下载地址](https://download.docker.com/mac/stable/Docker.dmg) [官方网站](https://www.docker.com/community-edition#/download)
 
-> 注意：第二步，因 python 部分版本对中文目录不兼容，请 Windows 用户将 repo clone 到英文路径下。参考 issue https://github.com/easychen/fangPHP/issues/4
 
-1. 安装 Native Docker 社区版。https://www.docker.com/community-edition#/download
-1. git clone https://github.com/easychen/fangPHP
-1. cd https://github.com/easychen/fangPHP
-1. docker-compose up
+## 启动 fangPHP
 
-#### 添加 index.php 测试环境
+进入命令行，选择一个用来存放代码的目录（ 路径中不要包含中文，不然某些版本的 Docker 会出错 ）
 
-1. 在 ./web 目录下新建一个 index.php
-1. 访问 o.ftqq.com ， 也就是 127.0.0.1 ，应该就能看到页面内容了
+检出代码：
+
+1. 运行 git 命令检出代码 `git clone https://github.com/easychen/fangPHP`
+1. 进入代码目录 `cd fangPHP`   
+
+启动：
+
+使用 Mac 和 Linux 的同学运行 `docker-compose.exe up`
+使用 Windows 的同学运行 `docker-compose.exe -f docker-compose.win.yaml up`
+
+注意这里 Windows 使用了独立的配置，否则 MySQL 服务会无法启动。
+
+添加测试 PHP 文件：
+
+在 fangPHP 目录下，进入 `data/web` ， 新建 `index.php` 文件，内容为:
+
+`<?php
+echo "Hello world";
+`
+
+打开浏览器，访问 o.ftqq.com ，应该就能看到输出的结果了。
+
+## 安装 Live-reload 插件
+
+1. 打开 Chrome 浏览器，进入插件页面，将 fangPHP 目录下的 LiveReload_v2.1.0.crx 拖拽到浏览器中的插件 Tab，放开即可安装
+1. 打开 o.ftqq.com , 点击浏览器右上方的插件图标 ，会提示连接成功
+1. 当你修改 data/web 下的 PHP、HTML、CSS 和 JS 文件时 ，页面会自动更新
+
 
 #### 管理数据库
 
@@ -53,104 +109,4 @@ gist 地址 https://gist.github.com/easychen/b126a24e20534562d44cae0988fed634#fi
 1. 使用 redis.ftqq.com 作为 redis 的 host
 
 注意以上域名只在 PHP 环境内有效。
-
-#### 使用 live-reload
-
-1. 安装 Chrome 插件 https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei （无法访问商店的同学，可使用 fangphp/LiveReload_v2.1.0.crx 本地版。拖拽到插件页面即可安装 ）
-1. 打开 o.ftqq.com , 点击浏览器右上方的插件图标 ，会提示连接成功
-1. 当你修改 ./web/ 下的 PHP、HTML、CSS 和 JS 文件时 ，页面会自动更新
-
-
-### Docker ToolBox 的使用
-
-对于 Win10 非专业版用户，可以通过安装 虚拟机实现的 Docker ToolBox 来使用本环境
-
-> 注意：第四步，因 python 部分版本对中文目录不兼容，请 Windows 用户将 repo clone 到英文路径下。参考 issue https://github.com/easychen/fangPHP/issues/4
-
-1. https://docs.docker.com/toolbox/toolbox_install_windows/
-1. 安装（安装时如果没有安装 git windows 版，记得同时选上 ）完成后，启动「 Docker Quickstart Terminal 」，进入命令行
-1. 等待一段时间，按提示给予权限。最后会显示一个内网地址，一般是 192.168.99.100 这个要记录下，稍后有用。
-1. git clone https://github.com/easychen/fangPHP
-1. cd https://github.com/easychen/fangPHP
-1. docker-compose.exe -f docker-compose.win.yaml up ( 注意这里使用的是专门的配置文件 )
-1. 等待一段时间，服务应该都起来了，但是要注意，它的服务不是启动到 127.0.0.1，而是之前的那个地址，比如 192.168.99.100，这回导致 live-reload 失败，为了解决这个问题，我们需要做端口映射。
-1. 在目录下的 port-remapping-for-toolkit-win.bat 上点右键，以管理员权限运行。看到「按任意键继续」后，不要点…… 点了映射就结束了，等你开发完了再点。
-1. 在 ./web 目录下新建一个 index.php
-1. 访问 o.ftqq.com ， 也就是 127.0.0.1 ，应该就能看到页面内容了
-
-#### 管理数据库
-
-1. 访问 o.ftqq.com/mysql.php 即可
-1. 可以在左上角切换语言
-1. 默认账号信息如下，可在 docker-compose.win.yaml 中修改：
-```
-    MYSQL_HOST: mysql.ftqq.com
-    MYSQL_ROOT_PASSWORD: itworks1343
-    MYSQL_DATABASE: fangtangdb
-    MYSQL_USER: php
-    MYSQL_PASSWORD: fangtang
-```
-
-#### 在 PHP 中访问 MySQL 和 Redis 
-
-1. 使用 mysql.ftqq.com 作为 mysql 的 host
-1. 使用 redis.ftqq.com 作为 redis 的 host
-
-注意以上域名只在 PHP 环境内有效。
-
-#### 使用 live-reload
-
-1. 安装 Chrome 插件 https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei （无法访问商店的同学，可使用 fangphp/LiveReload_v2.1.0.crx 本地版。拖拽到插件页面即可安装 ）
-1. 打开 o.ftqq.com , 点击浏览器右上方的插件图标 ，会提示连接成功
-1. 当你修改 ./web/ 下的 PHP、HTML、CSS 和 JS 文件时 ，页面会自动更新
-
-
-
-## How to use
-
-### install docker via scripts （ Linux only ）
-
-```
-git clone https://github.com/easychen/fangPHP && cd fangPHP
-# install docker-compose 
-sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
-docker-compose up
-```
-
-gist https://gist.github.com/easychen/b126a24e20534562d44cae0988fed634#file-gistfile1-txt
-
-### install docker manually
-
-1. install docker on your computor
-1. git clone https://github.com/easychen/fangPHP
-1. cd https://github.com/easychen/fangPHP
-1. docker-compose up
-
-### test it
-
-1. write a index.php file under ./web
-1. visit o.ftqq.com , you should see the html
-
-## Visit MySQL & Redis in PHP
-
-1. use mysql.ftqq.com as mysql server host
-1. use redis.ftqq.com as redis server host
-
-## Using live-reload
-
-1. install chrome extension here https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
-1. open o.ftqq.com , click the icon of chrome extension , it should be connected
-1. change ./web/index.php , you will see the change
-
-## Manage database
-
-1. you can visit mysql via 3306 port on your computor directly
-1. default mysql account info ( can be changed in docker-compose.yaml )
-```
-    MYSQL_HOST: mysql.ftqq.com
-    MYSQL_ROOT_PASSWORD: itworks1343
-    MYSQL_DATABASE: fangtangdb
-    MYSQL_USER: php
-    MYSQL_PASSWORD: fangtang
-```
 
