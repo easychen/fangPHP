@@ -17,7 +17,11 @@ fangPHP 的目标是一个跨平台（ Mac / Linux / Win ）的 PHP 开发环境
 
 不同的操作系统安装 Docker 的方式不同，以下做分别的讲解。
 
-#### Win10 专业版和服务器版
+#### Windows用户
+
+首先，请[按此提示查看Windows的版本](https://jingyan.baidu.com/article/642c9d34032de3644a46f7bd.html)。
+
+#### Win10 专业版和服务器版（ Win10 的其他版本看后边 ）
 
 微软在 Win10 专业版、教育版和服务器版中，提供了 Hyper V 虚拟化技术，所以这部分用户可以安装最新的原生 Docker 客户端。
 Docker 提供面向企业的付费版本（EE）和面向社区的免费版本（CE），我们使用CE。
@@ -26,7 +30,7 @@ Docker 提供面向企业的付费版本（EE）和面向社区的免费版本�
 
 安装时记得选中 git for windows ，这是我们检出代码时要用到的工具。
 
-#### 其他 Windows 版本
+#### 其他 Windows 版本，包括 Win10 的家庭版等等
 
 由于没有容器化技术的支持，其他的 Windows 版本只能通过虚拟机的方案来实现。这时候我们需要用到 Docker ToolBox。
 
@@ -68,7 +72,7 @@ Mac 系统可以使用原生的 Docker 客户端，[下载地址](https://downlo
 
 启动：
 
-使用 Mac 和 Linux 的同学运行 `docker-compose up`
+使用 Mac 和 Linux 的同学运行 `docker-compose.exe up`
 使用 Windows 的同学运行 `docker-compose.exe -f docker-compose.win.yaml up`
 
 注意这里 Windows 使用了独立的配置，否则 MySQL 服务会无法启动。
