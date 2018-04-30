@@ -2,3 +2,4 @@ data/mysql/*
 !data/mysql/MYSQL_DATA_FOLDER
 data/web/*
 !data/web/mysql.php
+docker-compose.fangcv.yaml

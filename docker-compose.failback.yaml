@@ -1,0 +1,34 @@
+version: '2.1'
+services:
+  php7.ftqq.com:
+    image: hub.c.163.com/easychen/apncore:latest
+    ports:
+      - "80:80"
+      - "443:80"
+    volumes:
+      - "./data/web:/data"
+  mysql.ftqq.com:
+      image: hub.c.163.com/easychen/mysql-alpine:latest
+      environment:
+        MYSQL_ROOT_PASSWORD: itworks1343
+        MYSQL_DATABASE: fangtangdb
+        MYSQL_USER: php
+        MYSQL_PASSWORD: fangtang
+      ports:
+        - "3306:3306"
+      volumes:
+        - ./data/mysql:/var/lib/mysql
+      restart: always
+  redis.ftqq.com:
+      image: hub.c.163.com/library/redis:4-alpine
+      expose:
+        - "6379"
+      restart: always
+  livereload:
+    image: hub.c.163.com/easychen/livereload
+    ports:
+      - "35729:35729"
+    volumes:
+      - "./data:/usr/src/livereload-watch"       
+
+    
