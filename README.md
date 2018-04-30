@@ -77,11 +77,13 @@ Mac 系统可以使用原生的 Docker 客户端，[下载地址](https://downlo
 
 注意这里 Windows 使用了独立的配置，否则 MySQL 服务会无法启动。
 
+```
 报错备用方案：
+
 Mac & Linux : 将 docker-composer.yaml 第4行  build: ./buildLNP 换成     image: hub.c.163.com/easychen/apncore:latest 
 
 Win：将 docker-composer.win.yaml 第4行  build: ./buildLNP 换成     image: hub.c.163.com/easychen/apncore:latest 
-
+```
 
 添加测试 PHP 文件：
 
