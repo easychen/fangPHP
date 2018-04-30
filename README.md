@@ -72,7 +72,7 @@ Mac 系统可以使用原生的 Docker 客户端，[下载地址](https://downlo
 
 启动：
 
-使用 Mac 和 Linux 的同学运行 `docker-compose.exe up`
+使用 Mac 和 Linux 的同学运行 `docker-compose up`
 使用 Windows 的同学运行 `docker-compose.exe -f docker-compose.win.yaml up`
 
 注意这里 Windows 使用了独立的配置，否则 MySQL 服务会无法启动。
