@@ -95,6 +95,17 @@ echo "Hello world";
 
 打开浏览器，访问 o.ftqq.com ，应该就能看到输出的结果了。
 
+如果在 Windows 上创建了 index.php ，访问还是403，那么请打开 kitematic ( 桌面快捷方式的另一个 )，然后启动（可跳过登录），进入容器的可视化管理界面。
+
+![](https://ws1.sinaimg.cn/large/40dfde6fly1frea4rta0tj21900scn47.jpg)
+
+
+在左侧菜单中选择名称中包含 php7.ftqq.com 的镜像，然后，在右边的共享目录设置处点击齿轮图标。
+
+把 local folder 改到 `你安装fangPHP的目录`+ `data/web` ，应该就能找到 index.php 啦。
+![](https://ws1.sinaimg.cn/large/40dfde6fly1frea9ulglwj21900scwge.jpg)
+
+
 ## 安装 Live-reload 插件
 
 1. 打开 Chrome 浏览器，进入插件页面，将 fangPHP 目录下的 LiveReload_v2.1.0.crx 拖拽到浏览器中的插件 Tab，放开即可安装
