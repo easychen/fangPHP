@@ -19,6 +19,8 @@ fangPHP 的目标是一个跨平台（ Mac / Linux / Win ）的 PHP 开发环境
 
 #### Windows用户
 
+> Windows 因为版本差异、环境不同会遇到各种奇形怪状的问题，推荐大家直接安装 Ubuntu / Windows 双系统，然后在 Ubuntu 下进行开发，能节约很多时间。
+
 首先，请[按此提示查看Windows的版本](https://jingyan.baidu.com/article/642c9d34032de3644a46f7bd.html)。
 
 #### Win10 专业版和服务器版（ Win10 的其他版本看后边 ）
@@ -43,7 +45,8 @@ Docker 提供面向企业的付费版本（EE）和面向社区的免费版本�
 
 1. git clone https://github.com/easychen/fangPHP ( clone fangPHP 代码到本地 )
 1. 以管理员身份运行 fangPHP 目录下的 port-remapping-for-toolkit-win.bat 启动以后挂着就行，不用的时候再点任意键关掉
-1. 如果你的IP不是 192.168.99.100 ， 请用编辑器打开 port-remapping-for-toolkit-win.bat ， 将 192.168.99.100 替换为对应的 IP。 
+1. 如果你的IP不是 192.168.99.100 ， 请用编辑器打开 port-remapping-for-toolkit-win.bat ， 将 192.168.99.100 替换为对应的 IP。
+1. 因为 Windows 的一个 Bug（ https://support.microsoft.com/en-us/help/555744 ），如果这个脚本不生效，请检查是否电脑是否[启用了IPV6](https://github.com/XX-net/XX-Net/wiki/IPv6-Win10) 
 
 ### Linux 
 
