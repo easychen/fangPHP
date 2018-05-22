@@ -46,7 +46,7 @@ Docker 提供面向企业的付费版本（EE）和面向社区的免费版本�
 1. git clone https://github.com/easychen/fangPHP ( clone fangPHP 代码到本地 )
 1. 以管理员身份运行 fangPHP 目录下的 port-remapping-for-toolkit-win.bat 启动以后挂着就行，不用的时候再点任意键关掉
 1. 如果你的IP不是 192.168.99.100 ， 请用编辑器打开 port-remapping-for-toolkit-win.bat ， 将 192.168.99.100 替换为对应的 IP。
-1. 因为 Windows 的一个 Bug（ https://support.microsoft.com/en-us/help/555744 ），如果这个脚本不生效，请检查是否电脑是否[启用了IPV6](https://github.com/XX-net/XX-Net/wiki/IPv6-Win10) 
+1. 因为 Windows 的一个 Bug（ https://support.microsoft.com/en-us/help/555744 ），如果这个脚本不生效，请检查是否电脑是否安装了 IPV6MON.DLL 
 
 ### Linux 
 
