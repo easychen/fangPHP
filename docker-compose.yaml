@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   php7.ftqq.com:
-    build: ./buildLNP
+    image: hub.c.163.com/easychen/apncore:latest 
     ports:
       - "80:80"
       - "443:80"
