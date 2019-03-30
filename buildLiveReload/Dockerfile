@@ -1,4 +1,4 @@
-FROM hub.c.163.com/library/node:alpine
+FROM node:alpine
 MAINTAINER jsonfry jason@ocastastudios.com
 
 RUN apk --no-cache add git

@@ -1,4 +1,4 @@
-FROM hub.c.163.com/library/alpine:3.6
+FROM alpine:3.6
 
 LABEL Maintainer="EasyChen <easychen@gmail.com>"
 # modified from https://github.com/TrafeX/docker-php-nginx/

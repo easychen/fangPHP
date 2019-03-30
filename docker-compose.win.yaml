@@ -1,14 +1,14 @@
 version: '2.1'
 services:
   php7.ftqq.com:
-    build: ./buildLNP
+    image: ccr.ccs.tencentyun.com/ftqq/php7.ftqq.com
     ports:
       - "80:80"
       - "443:80"
     volumes:
       - "./data/web:/data"
   mysql.ftqq.com:
-      image: hub.c.163.com/easychen/mysql-alpine:latest
+      image: ccr.ccs.tencentyun.com/ftqq/mysql.ftqq.com
       environment:
         MYSQL_ROOT_PASSWORD: itworks1343
         MYSQL_DATABASE: fangtangdb
@@ -18,12 +18,12 @@ services:
         - "3306:3306"
       restart: always
   redis.ftqq.com:
-      image: hub.c.163.com/library/redis:4-alpine
+      image: ccr.ccs.tencentyun.com/ftqq/redis
       expose:
         - "6379"
       restart: always
   livereload:
-    image: hub.c.163.com/easychen/livereload
+    image: ccr.ccs.tencentyun.com/ftqq/livereload
     ports:
       - "35729:35729"
     volumes:
