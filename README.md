@@ -34,6 +34,11 @@ Docker 提供面向企业的付费版本（EE）和面向社区的免费版本�
 
 #### 其他 Windows 版本，包括 Win10 的家庭版等等
 
+更新：Docker 原生版已经支持在 Win10 2004以后的版本安装，可参考：  https://www.jdon.com/54526
+
+以下方式已经不推荐。
+
+```
 由于没有容器化技术的支持，其他的 Windows 版本只能通过虚拟机的方案来实现。这时候我们需要用到 Docker ToolBox。
 
 1. 下载页面 https://docs.docker.com/toolbox/toolbox_install_windows/
@@ -47,7 +52,7 @@ Docker 提供面向企业的付费版本（EE）和面向社区的免费版本�
 1. 以管理员身份运行 fangPHP 目录下的 port-remapping-for-toolkit-win.bat 启动以后挂着就行，不用的时候再点任意键关掉
 1. 如果你的IP不是 192.168.99.100 ， 请用编辑器打开 port-remapping-for-toolkit-win.bat ， 将 192.168.99.100 替换为对应的 IP。
 1. 因为 Windows 的一个 Bug（ https://support.microsoft.com/en-us/help/555744 ），如果这个脚本不生效，请检查是否电脑是否安装了 IPV6MON.DLL 
-
+```
 ### Linux 
 
 按官方的安装提示进行安装，以下链接以 Ubuntu 为例，左侧菜单处可切换其他发行版。( 18.04 请参考[这篇文章](https://medium.com/devgorilla/how-to-install-docker-on-ubuntu-18-04-495216a16092) 需科学访问 )
